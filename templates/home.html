@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Threat Detection System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1>Real-Time Threat Detection</h1>
+            <div class="user-settings">
+                <span class="username">User: Bishula</span>
+                <button class="settings-button">
+                    <img src="https://cdn-icons-png.flaticon.com/128/2099/2099058.png" alt="Settings Icon" class="settings-icon">
+                    Settings
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="left-panel">
+            <div class="live-feed">
+                <h2>Live Surveillance Feed</h2>
+                <div class="feed">
+                    <img id="webcam" src="" alt="Webcam Feed">
+
+             <!-- Updated for webcam control -->
+                </div>
+                <div class="feed-status">
+                    <p id="alert">{{ alert_message }}</p> <!-- Alert will dynamically update -->
+                </div>
+                <div class="detection-controls">
+                    <button onclick="startDetection()">Start Detection</button>
+                    <button onclick="stopDetection()">Stop Detection</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="right-panel">
+            <h2>Recent Threat Alerts</h2>
+            <div class="alert-card">
+                <h3>Intruder Detected</h3>
+                <p>Location: KEC library</p>
+                <p>Time: 12:30 PM</p>
+                <button>Acknowledge</button>
+            </div>
+            <div class="alert-card">
+                <h3>Suspicious Object Found</h3>
+                <p>Location: Parking Lot</p>
+                <p>Time: 11:45 AM</p>
+                <button>Acknowledge</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Threat Detection System</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        async function fetchAlert() {
+            const response = await fetch('/get_alert');
+            const data = await response.json();
+            document.getElementById('alert').innerText = data.alert;
+        }
+
+        setInterval(fetchAlert, 1000); // Fetch alert every second
+
+        // function startDetection() {
+        //     document.getElementById("webcam").src = "/opencam"; // Start webcam feed
+        //     alert("Threat detection started!");
+        // }
+
+        // function stopDetection() {
+        //     document.getElementById("webcam").src = ""; // Stop webcam feed
+        //     fetch('/shutdown'); // Shut down the camera in Flask
+        //     alert("Threat detection stopped!");
+        // }
+        function startDetection() {
+       document.getElementById("webcam").src = "/video_feed";  // Set the video feed URL
+    alert("Threat detection started!");
+}
+function stopDetection() {
+            document.getElementById("webcam").src = ""; // Stop webcam feed
+            fetch('/shutdown'); // Shut down the camera in Flask
+            alert("Threat detection stopped!");}
+
+    </script>
+</body>
+</html>
