@@ -5,7 +5,7 @@ Here's a quick overview of what's in progress:
    
 2. Optimizing the system for faster processing times, especially for large-scale deployment.
 
-3.Continuous improvements to the Flask web interface for better UI.
+3. Continuous improvements to the Flask web interface for better UI.
 
 
 
