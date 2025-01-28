@@ -39,20 +39,7 @@
             </div>
         </div>
 
-        <div class="right-panel">
-            <h2>Recent Threat Alerts</h2>
-            <div class="alert-card">
-                <h3>Intruder Detected</h3>
-                <p>Location: KEC library</p>
-                <p>Time: 12:30 PM</p>
-                <button>Acknowledge</button>
-            </div>
-            <div class="alert-card">
-                <h3>Suspicious Object Found</h3>
-                <p>Location: Parking Lot</p>
-                <p>Time: 11:45 AM</p>
-                <button>Acknowledge</button>
-            </div>
+        
         </div>
     </main>
 
@@ -69,17 +56,6 @@
         }
 
         setInterval(fetchAlert, 1000); // Fetch alert every second
-
-        // function startDetection() {
-        //     document.getElementById("webcam").src = "/opencam"; // Start webcam feed
-        //     alert("Threat detection started!");
-        // }
-
-        // function stopDetection() {
-        //     document.getElementById("webcam").src = ""; // Stop webcam feed
-        //     fetch('/shutdown'); // Shut down the camera in Flask
-        //     alert("Threat detection stopped!");
-        // }
         function startDetection() {
        document.getElementById("webcam").src = "/video_feed";  // Set the video feed URL
     alert("Threat detection started!");

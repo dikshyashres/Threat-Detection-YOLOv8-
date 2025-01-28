@@ -2,7 +2,7 @@ import cv2
 from ultralytics import YOLO  # Import YOLO from the ultralytics package
 
 # Path to your trained YOLOv11 model
-model_path = r'C:\threat-detection-system\weapons.pt'  # Path to your custom YOLOv11 model
+model_path = 'C:\threat-detection-system\weapons.pt'  # Path to your custom YOLOv11 model
 
 # Load the trained YOLO model
 model = YOLO(model_path)
