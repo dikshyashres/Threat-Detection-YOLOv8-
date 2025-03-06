@@ -3,68 +3,180 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Real-Time Threat Detection System</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+    <title>Threat Detection System</title>
+    <link rel="stylesheet" href="/static/home.css">
+    <script src="/static/script.js" defer></script>
+    <style>
+        /* Flexbox layout for positioning elements */
+        .main-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .left-panel {
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .right-panel {
+            flex: 1;
+            border-left: 2px solid #ddd;
+            padding-left: 20px;
+        }
+
+        .live-feed img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        .log-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .log-table th, .log-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .log-table th {
+            background-color: rgb(89, 118, 163);
+            color: white;
+        }
+
+        /* Processed Image Styling */
+        #processed-container img {
+            width: 100%;
+            height: auto;
+            margin-top: 10px;
+            border-radius: 10px;
+            border: 2px solid #ddd;
+        }
+
+        /* Settings Dropdown */
+        .settings-menu {
+            display: none;
+            position: absolute;
+            top: 50px;
+            right: 10px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            width: 150px;
+        }
+
+        .settings-menu a {
+            display: block;
+            padding: 8px;
+            color: #333;
+            text-decoration: none;
+        }
+
+        .settings-menu a:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
 </head>
 <body>
+
+    <!-- Navbar -->
     <header>
-        <div class="header-container">
-            <h1>Real-Time Threat Detection</h1>
-            <div class="user-settings">
-                <span class="username">User: Bishula</span>
-                <button class="settings-button">
-                    <img src="https://cdn-icons-png.flaticon.com/128/2099/2099058.png" alt="Settings Icon" class="settings-icon">
-                    Settings
-                </button>
+        <nav class="navbar">
+            <div>
+                <a href="login.html">Login</a> | <a href="register.html">Register</a>
             </div>
-        </div>
+            <div class="logo">Threat Detection System</div>
+            <div class="nav-icons">
+                <button class="icon-btn theme-toggle">🌙</button>
+                <button class="icon-btn notification-btn">🔔</button>
+                <button class="icon-btn settings-btn" onclick="toggleSettingsMenu()">⚙️</button>
+            </div>
+        </nav>
     </header>
-
-    <main>
+    
+    <!-- Settings Menu -->
+    <div id="settings-menu" class="settings-menu">
+        <a href="#" onclick="logout()">Logout</a>
+    </div>
+    
+    <main class="main-container">
+        <!-- Left Panel: Live Surveillance Feed & Upload Section -->
         <div class="left-panel">
-            <div class="live-feed">
+            <section class="section-container">
                 <h2>Live Surveillance Feed</h2>
-                <div class="feed">
-                    <img id="webcam" src="" alt="Webcam Feed">
+                <div class="live-feed">
+                    <img id="webcam" src="" alt="Live Webcam Feed">
+                </div>
+                <div class="button-group">
+                    <button class="btn start-btn" onclick="startDetection()">Start Detection</button>
+                    <button class="btn stop-btn" onclick="stopDetection()">Stop Detection</button>
+                </div>
+                <p id="alert" class="alert-text"></p>
+            </section>
 
-             <!-- Updated for webcam control -->
-                </div>
-                <div class="feed-status">
-                    <p id="alert">{{ alert_message }}</p> <!-- Alert will dynamically update -->
-                </div>
-                <div class="detection-controls">
-                    <button onclick="startDetection()">Start Detection</button>
-                    <button onclick="stopDetection()">Stop Detection</button>
-                </div>
-            </div>
+            <!-- Upload Section -->
+            <section class="section-container">
+                <h2>Upload Image/Video for Analysis</h2>
+                <form id="upload-form">
+                    <input type="file" id="file-input" accept="image/*">
+                    <button type="submit" class="btn upload-btn">Upload</button>
+                </form>
+
+                <!-- Processed image display -->
+                <div id="processed-container"></div>
+            </section>
         </div>
 
-        
+        <!-- Right Panel: Threat Detection Logs -->
+        <div class="right-panel">
+            <section class="section-container">
+                <h2>Threat Detection Logs</h2>
+                <table class="log-table">
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Threat Type</th>
+                        </tr>
+                    </thead>
+                    <tbody id="log-body">
+                        <tr><td colspan="2">No threats detected yet.</td></tr>
+                    </tbody>
+                </table>
+            </section>
         </div>
     </main>
 
     <footer>
-        <p>&copy; 2024 Threat Detection System</p>
+        <p>&copy; 2024 Threat Detection System | System Status: <span class="status">Active</span></p>
     </footer>
 
-    <!-- JavaScript -->
     <script>
-        async function fetchAlert() {
-            const response = await fetch('/get_alert');
-            const data = await response.json();
-            document.getElementById('alert').innerText = data.alert;
+        function toggleSettingsMenu() {
+            const menu = document.getElementById('settings-menu');
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
         }
 
-        setInterval(fetchAlert, 1000); // Fetch alert every second
-        function startDetection() {
-       document.getElementById("webcam").src = "/video_feed";  // Set the video feed URL
-    alert("Threat detection started!");
-}
-function stopDetection() {
-            document.getElementById("webcam").src = ""; // Stop webcam feed
-            fetch('/shutdown'); // Shut down the camera in Flask
-            alert("Threat detection stopped!");}
-
+        function logout() {
+            // Clear user session (localStorage/sessionStorage)
+            localStorage.removeItem('user');
+            // Redirect to login page
+            window.location.href = 'login.html';
+        }
     </script>
+
 </body>
 </html>
