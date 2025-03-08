@@ -1,0 +1,230 @@
+{
+    "users": [
+        {
+            "name": "John Doe",
+            "email": "johndoe@example.com",
+            "password": "hashedpassword123"
+        },
+        {
+            "name": "Ram Bahadur",
+            "email": "ram123@gmail.com",
+            "password": "12345"
+        },
+        {
+            "name": "Bipana",
+            "email": "bip123@gmai.com",
+            "password": "12345"
+        },
+        {
+            "name": "Dikshya shrestha",
+            "email": "dikshyasht321@gmail.com",
+            "password": "dikshy@"
+        }
+    ],
+    "threat_records": [
+        {
+            "timestamp": "2025-03-08 08:30:09.104476",
+            "class": "knife"
+        },
+        {
+            "timestamp": "2025-03-08 08:54:27.530869",
+            "class": "knife"
+        },
+        {
+            "timestamp": "2025-03-08T13:22:54.033565",
+            "class": "knife"
+        },
+        {
+            "timestamp": "2025-03-08T13:57:08.503719",
+            "class": "fight"
+        },
+        {
+            "timestamp": "2025-03-08T13:57:09.779419",
+            "class": "fight"
+        },
+        {
+            "timestamp": "2025-03-08T13:57:10.423515",
+            "class": "fight"
+        },
+        {
+            "timestamp": "2025-03-08T13:57:12.891778",
+            "class": "fight"
+        },
+        {
+            "timestamp": "2025-03-08T13:57:13.538864",
+            "class": "fight"
+        },
+        {
+            "timestamp": "2025-03-08T13:57:14.806048",
+            "class": "fight"
+        },
+        {
+            "timestamp": "2025-03-08T13:57:15.427776",
+            "class": "fight"
+        },
+        {
+            "timestamp": "2025-03-08T13:57:15.442406",
+            "class": "fight"
+        },
+        {
+            "timestamp": "2025-03-08T13:57:17.320067",
+            "class": "fight"
+        },
+        {
+            "timestamp": "2025-03-08T13:57:18.592660",
+            "class": "fight"
+        },
+        {
+            "timestamp": "2025-03-08T14:03:51.382261",
+            "class": "gun"
+        },
+        {
+            "timestamp": "2025-03-08T14:03:52.007192",
+            "class": "gun"
+        },
+        {
+            "timestamp": "2025-03-08T14:03:52.637525",
+            "class": "fight"
+        },
+        {
+            "timestamp": "2025-03-08T14:03:53.251776",
+            "class": "gun"
+        },
+        {
+            "timestamp": "2025-03-08T14:03:53.881130",
+            "class": "fight"
+        },
+        {
+            "timestamp": "2025-03-08T14:03:54.502072",
+            "class": "gun"
+        },
+        {
+            "timestamp": "2025-03-08T14:03:54.517578",
+            "class": "gun"
+        },
+        {
+            "timestamp": "2025-03-08T14:03:54.529995",
+            "class": "fight"
+        },
+        {
+            "timestamp": "2025-03-08T14:03:55.143197",
+            "class": "gun"
+        },
+        {
+            "timestamp": "2025-03-08T14:03:55.778479",
+            "class": "gun"
+        },
+        {
+            "timestamp": "2025-03-08T14:03:55.794933",
+            "class": "fight"
+        },
+        {
+            "timestamp": "2025-03-08T14:03:57.046054",
+            "class": "gun"
+        },
+        {
+            "timestamp": "2025-03-08T14:03:57.676731",
+            "class": "gun"
+        },
+        {
+            "timestamp": "2025-03-08T14:03:57.695876",
+            "class": "fight"
+        },
+        {
+            "timestamp": "2025-03-08T14:04:00.203003",
+            "class": "gun"
+        },
+        {
+            "timestamp": "2025-03-08T14:04:00.217157",
+            "class": "fight"
+        },
+        {
+            "timestamp": "2025-03-08T14:04:57.649301",
+            "class": "fight"
+        },
+        {
+            "timestamp": "2025-03-08T14:12:20.581697",
+            "class": "gun"
+        },
+        {
+            "timestamp": "2025-03-08T14:12:36.087937",
+            "class": "gun"
+        },
+        {
+            "timestamp": "2025-03-08T14:12:36.723562",
+            "class": "gun"
+        },
+        {
+            "timestamp": "2025-03-08T14:12:36.740133",
+            "class": "fight"
+        },
+        {
+            "timestamp": "2025-03-08T14:12:37.373463",
+            "class": "gun"
+        },
+        {
+            "timestamp": "2025-03-08T14:12:38.637873",
+            "class": "gun"
+        },
+        {
+            "timestamp": "2025-03-08T14:12:39.259221",
+            "class": "gun"
+        },
+        {
+            "timestamp": "2025-03-08T14:12:39.273439",
+            "class": "fight"
+        },
+        {
+            "timestamp": "2025-03-08T14:12:39.917499",
+            "class": "gun"
+        },
+        {
+            "timestamp": "2025-03-08T14:12:39.932037",
+            "class": "fight"
+        },
+        {
+            "timestamp": "2025-03-08T14:12:40.575834",
+            "class": "gun"
+        },
+        {
+            "timestamp": "2025-03-08T14:12:41.217183",
+            "class": "gun"
+        },
+        {
+            "timestamp": "2025-03-08T14:12:41.229720",
+            "class": "fight"
+        },
+        {
+            "timestamp": "2025-03-08T14:12:41.856972",
+            "class": "gun"
+        },
+        {
+            "timestamp": "2025-03-08T14:12:41.870939",
+            "class": "fight"
+        },
+        {
+            "timestamp": "2025-03-08T14:12:46.248497",
+            "class": "fight"
+        },
+        {
+            "timestamp": "2025-03-08T14:12:46.885848",
+            "class": "fight"
+        },
+        {
+            "timestamp": "2025-03-08T14:12:47.530010",
+            "class": "fight"
+        },
+        {
+            "timestamp": "2025-03-08T14:12:48.178867",
+            "class": "fight"
+        },
+        {
+            "timestamp": "2025-03-08T14:12:48.832667",
+            "class": "fight"
+        },
+        {
+            "timestamp": "2025-03-08T14:12:49.481025",
+            "class": "fight"
+        }
+    ]
+}
